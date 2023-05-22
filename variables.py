@@ -9,3 +9,4 @@ print(a,'는',type(a))
 print(b,'는',type(b))
 print(c,'는',type(c))
 print(d,'는',type(d))
+
