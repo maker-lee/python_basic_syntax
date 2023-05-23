@@ -171,8 +171,55 @@
 # print('010','2243','9321',sep='-')
 # print('나는','배가','고프다')
 
-a = 'abcdefghijklmnopqrstu'
-print(a[0:20:2])
+# a = 'abcdefghijklmnopqrstu'
+# # print(a[0:20:2])
 
-d = 'python is fun'
-print(d[5:])
+# # d = 'python is fun'
+# # print(d[5:])
+
+# for i in a :
+#     print(i)
+
+
+numer1 = 1
+denom1 = 2
+numer2 = 3
+denom2 = 4
+ 
+# a = (numer1 * denom2) + (numer2 * denom1)
+# b = (denom1 * denom2)
+# c = a/b
+
+# for i in range(min(a, b), 0, -1):
+#     if a % i == 0 and b % i == 0:
+#         c = i
+# print(a/c,b/c)
+
+
+# 최대공약수 구하는 방법
+# 제가이걸어떻게아나요...(초5산수임)
+# 아래가 정답인데 
+def gcd(x,y):
+    if x % y == 0:
+        return y
+    else:
+        return gcd(y,x%y)
+
+e,f = numer1*denom2+denom1*numer2,denom1*denom2
+g = gcd(e,f)
+if g != 1:
+    e//=g
+    f//=g
+print(e,f)
+
+
+
+
+# # 기약 분수 구하기 
+# def solution(numer1, denom1, numer2, denom2): 
+#     a = (numer1 * denom2) + (numer2 * denom1)
+#     b = (denom1 * denom2) 
+#     for i in range(min(a, b), 0, -1):
+#         if a % i == 0 and b % i == 0:
+#             c = i
+#     return [a/c,b/c]
