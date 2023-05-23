@@ -35,13 +35,6 @@
 # # 문자에 매핑되는 숫자를 사전에 저장되어, 메모리에 97을 이진법으로 바꿔서 저장된다.
 
 
-# '''
-# 여기에주석을그냥쓰면됩니다.
-# 괜히 고민했네 ; 
-# 스페이스바 내가 이래서 키보드만 두번 바꿨는데
-# 여기 또 이러고 앉아있네
-# '''
- 
 
 # # 이스케이프문을 활용한 줄바꿈
 # # 이스케이프문이란 \n(줄바꿈), \t(탭)등의 특수기호를 말한다.
@@ -88,7 +81,7 @@
 # print(d[::-1]) # 역순으로 출력하기
 
 
-a = '20220505CHILDRENS\'_DAY'
+# a = '20220505CHILDRENS\'_DAY'
 
 # day = a[:8]
 # date = a[8:]
@@ -105,30 +98,62 @@ a = '20220505CHILDRENS\'_DAY'
 # print('my age is %d and weight is %fkg'%(age,weight))
 # print('%s는 %s입니다'%(date,day))
 # # print('%s는 %s입니다'%(int(date),day))
+# input으로 받을 때 편하다. +를 사용하지 않아 덜 번거롭다
 
-# strlist = ["We", "are", "the", "world!"]
-# print(strlist[1:3])
-# answer = []
-# for i in strlist :
-#     answer.append(len(i))
-# print(answer)
+# lan = input('언어:')
+# times = int(input('몇번?'))
+
+# # print('how many times study? and languges? i studied %s, %d timees' %(lan,times))
+
+# age = int(input('나이가 몇살이신가요?'))
+# weight = float(input('몸무게가몇키로인가요?'))
+# print('my age is %d, and weight is %f kg' %(age,weight))
 
 
-# 예제1) 리스트의 값을 정수 타입으로 변환 map(변환 타입 int,len 등등, [리스트])
-# 단 map은 객체이므로 다시 튜플, 리스트 타입으로 변환해야한다.
 
-result1 = list(map(int, [1.1, 2.2, 3.3, 4.4, 5.5]))
-print(result1)
+# # 대상 문자열에 지정한 문자가 몇개 있는지 개수 세기 변수.count('갯수 세야 하는 단어') 
+# a = 'python'
+# b = a.count('g')
 
-numbers = [1,2,3,4,5]
-answer = []
-for i in numbers :
-    i = i * 2
-    answer.append(i)
-print(answer)
+# # 위치(index) 찾기 변수.find(찾을내용) 
+# c = a.find('m')
 
-def solution(numbers):
-    answer = [i *2 for i in numbers]
-    return answer
+# print(b,c)
 
-# 이렇게표현할수도있다.
+# # 대소문자 변경 .upper(), .lower()
+# a = 'heLLo'
+# print(a.upper())
+# b = "HELLo"
+# print(b.lower())
+
+# # 양쪽 공백 제거 .strip()  
+# c = "   HELLo   "
+# print(c.strip())
+
+# # 문자열 대체하기 replace(찾는문자,대체문자) 
+# d = 'i studied python'
+# # d1 = d.replace('python','java')
+# # print(d1)
+# # print(d)
+
+# # 문자열 나누기 split()
+# e = d.split() # 공백을 기준으로 나눈다 ['i', 'studed', 'python']
+# print(e)
+
+dd = 'i studied  python   ' # 스페이스바1칸, 중간에 2칸, 뒤에 3칸인 경우
+e1 = dd.split(" ") #공백 한 칸당 하나씩으로 나뉜다 ['i', 'studied', '', 'python', '', '', '']
+# 스플릿 중간에 " "가 사라지고 맨뒤에 " "는 나뉘는게 없어서 살아남는다. 
+print(e1)
+print(dd.split()) # 공백이 여러개여도 하나로 체크된다. 
+print(dd.split('ed')) # ['i studi', '  python   ']
+
+
+# sep 이란 separate(구분자) 의 줄임말 입니다. 즉, 다중 출력 문자열에서 "각 문자열 객체 사이를 무엇으로 구분 할 것인가" 
+# sep 이 지정되지 않거나 None 이면, 다른 분할 알고리즘이 적용됩니다: 연속된 공백 문자는 단일한 구분자로 간주하고, 문자열이 선행이나 후행 공백을 포함해도 결과는 시작과 끝에 빈 문자열을 포함하지 않습니다.
+
+# 연습문제
+x = int(input('x='))
+y = 2.5 * x**2 + 3.3 *x + 6 # y = 2.5 * pow(x,2)+ 3.3 *x + 6 # 제곱은 pow로 한다.
+print('2차 방정식 결과 =',y)
+
+
