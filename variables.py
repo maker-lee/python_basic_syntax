@@ -138,22 +138,41 @@
 
 # # 문자열 나누기 split()
 # e = d.split() # 공백을 기준으로 나눈다 ['i', 'studed', 'python']
-# print(e)
+# # print(e)
 
-dd = 'i studied  python   ' # 스페이스바1칸, 중간에 2칸, 뒤에 3칸인 경우
-e1 = dd.split(" ") #공백 한 칸당 하나씩으로 나뉜다 ['i', 'studied', '', 'python', '', '', '']
-# 스플릿 중간에 " "가 사라지고 맨뒤에 " "는 나뉘는게 없어서 살아남는다. 
-print(e1)
-print(dd.split()) # 공백이 여러개여도 하나로 체크된다. 
-print(dd.split('ed')) # ['i studi', '  python   ']
+# dd = 'i studied  python   ' # 스페이스바1칸, 중간에 2칸, 뒤에 3칸인 경우
+# e1 = dd.split(" ") #공백 한 칸당 하나씩으로 나뉜다 ['i', 'studied', '', 'python', '', '', '']
+# # 스플릿 중간에 " "가 사라지고 맨뒤에 " "는 나뉘는게 없어서 살아남는다. 
+# print(e1)
+# print(dd.split()) # 공백이 여러개여도 하나로 체크된다. 
+# print(dd.split('ed')) # ['i studi', '  python   ']
 
 
 # sep 이란 separate(구분자) 의 줄임말 입니다. 즉, 다중 출력 문자열에서 "각 문자열 객체 사이를 무엇으로 구분 할 것인가" 
 # sep 이 지정되지 않거나 None 이면, 다른 분할 알고리즘이 적용됩니다: 연속된 공백 문자는 단일한 구분자로 간주하고, 문자열이 선행이나 후행 공백을 포함해도 결과는 시작과 끝에 빈 문자열을 포함하지 않습니다.
 
-# 연습문제
-x = int(input('x='))
-y = 2.5 * x**2 + 3.3 *x + 6 # y = 2.5 * pow(x,2)+ 3.3 *x + 6 # 제곱은 pow로 한다.
-print('2차 방정식 결과 =',y)
+# # 연습문제
+# x = int(input('x='))
+# y = 2.5 * x**2 + 3.3 *x + 6 # y = 2.5 * pow(x,2)+ 3.3 *x + 6 # 제곱은 pow로 한다.
+# print('2차 방정식 결과 =',y)
+
+# # 연습문제2
+# # 3개의단어를 키보드로 입력 받아 각단어의 첫글자를 추출 후 단어의 약자를 출력하라
+# a = input('입력1 : ')
+# b = input('입력2 : ')
+# c = input('입력3 : ')
+# print('='*30)
+# abbr = a[0]+b[0]+c[0]
+# print(abbr)
 
 
+
+# print('value=',10+20+30)
+# print('010','2243','9321',sep='-')
+# print('나는','배가','고프다')
+
+a = 'abcdefghijklmnopqrstu'
+print(a[0:20:2])
+
+d = 'python is fun'
+print(d[5:])
