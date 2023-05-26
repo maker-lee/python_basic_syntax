@@ -128,23 +128,34 @@ completion의 길이는 participant의 길이보다 1 작습니다.
 참가자 중에는 동명이인이 있을 수 있습니다.
 '''
 
-participant=["marina", "josipa", "nikola", "vinko", "filipa"]
-completion=["josipa", "filipa", "marina", "nikola"]
+# participant=["marina", "josipa", "nikola", "vinko", "filipa"]
+# completion=["josipa", "filipa", "marina", "nikola"]
 
 
-# 단어 빈도수 구하기
+# # # 단어 빈도수 구하기
+# array = [1, 2, 3, 3, 3, 4] # 데이터셋
+# wc = {} # 빈셋
+# # get 함수 이용 : key이용 value 가져오기
+# for key in array: 
+#     wc[key] = wc.get(key,0) +1
+# print(wc)
 
-p1 = {}
-c1 = {}
-for key in participant :
-    p1[key] = p1.get(key,0) + 1 # get으로 키를 가져온다. 키가 없으면 초기값은 0이다. 
-for key2 in completion :
-    c1[key2] = c1.get(key2,0) + 1 
-for i in p1.keys() : # 이러면 동명이인에서는 실패, 효율성은 통과함 
-    if p1[i] == c1[i] :
-            pass
-    else :
-        print(i)
+# for v in wc.keys() :
+#     print(v)
+
+
+
+# p1 = {}
+# c1 = {}
+# for key in participant :
+#     p1[key] = p1.get(key,0) + 1 # get으로 키를 가져온다. 키가 없으면 초기값은 0이다. 
+# for key2 in completion :
+#     c1[key2] = c1.get(key2,0) + 1 
+# for i in p1.keys() : # 이러면 동명이인에서는 실패, 효율성은 통과함 
+#     if p1[i] == c1[i] :
+#             pass
+#     else :
+#         print(i)
 
 
 # 요소 검사와 반복
@@ -165,3 +176,218 @@ for i in p1.keys() : # 이러면 동명이인에서는 실패, 효율성은 통�
 #     except :
 #         pass
 # print(''.join(participant))
+
+
+
+# # 최빈값 구하기 
+
+# # 나의 풀이 
+
+# array = [1, 2, 3, 3, 3, 4]
+# array = ['a','a','pizza','pizza']
+
+# p1 = {}
+# for key in array :
+#     p1[key] = p1.get(key,0) + 1 # get으로 키를 가져온다. 키가 없으면 초기값은 0이다.
+# print(p1) # {1: 1, 2: 1, 3: 3, 4: 1}
+
+
+# listA = list(p1.values()) #1,1,3,1
+# listA_num = len(list(p1.values()))
+# maxA = max(listA)
+# print(maxA)
+
+# for i in range(0,listA_num) :
+#     try :
+#         listA.remove(maxA)
+#     except :
+#         pass
+# if listA_num - len(listA) > 1 :
+#     print(-1)
+    
+    
+# a = []
+# pizza = []
+# for k, v in p1.items() :
+#     a.append(k)
+#     pizza.append(v)
+# c = max(pizza)
+# print(a[pizza.index(c)]) # 최빈수 
+
+# # 배우신분들의 풀이 
+
+# def solution(array):
+#     while len(array) != 0:
+#         for i, a in enumerate(set(array)):
+#             array.remove(a)
+#         if i == 0: return a
+#     return -1
+
+# def solution(array):
+#     keys = set(array)
+#     dict = {}
+#     max_freq = []
+#     for key in keys:
+#         dict[key] = array.count(key)
+#     for key in keys:
+#         if dict[key] == max(dict.values()):
+#             max_freq.append(key)
+#     if len(max_freq) > 1:
+#         answer = -1
+#     else:
+#         answer = max_freq[0]
+#     return answer
+
+# 최소 공배수 구하기
+
+# 소수 구하기  + 공약수 구하기
+
+# n = 10
+# pizza = 6
+# divs = 0
+# divs2 = 0
+
+# # 최대공약수 def lcm(a, pizza):
+# for i in range(max(n, pizza), (n * pizza) + 1):
+#     if i % n == 0 and i % pizza == 0:
+#         print(i)
+#         break
+
+
+# def gcd(a, pizza):  # 최대공약수
+#     while pizza > 0:
+#         a, pizza = pizza, a % pizza
+#     return a
+
+# def lcm(a, pizza):
+#     return a * pizza / gcd(a, pizza)
+
+
+
+# '''머쓱이네 피자가게는 피자를 여섯 조각으로 잘라 줍니다. 피자를 나눠먹을 사람의 수 n이 매개변수로 주어질 때, n명이 주문한 피자를 남기지 않고 모두 같은 수의 피자 조각을 먹어야 한다면 최소 몇 판을 시켜야 하는지를 return 하도록 solution 함수를 완성해보세요.'''
+
+# # 나의 풀이 
+# n = 10
+# pizza = 6
+# list_p = list()
+# for i in range(1,n*pizza+1) :
+#     if i % pizza == 0 :
+#         list_p.append(i)
+# for j in list_p :
+#     if j % n == 0 :
+#         print(j/pizza)
+#         break
+
+# # 다른풀이 
+
+# def solution(n):
+#     i=1
+#     while(1): # while 1이 무슨 말이야 
+#         if (6*i)%n==0:
+#             return i
+#         i+=1
+
+
+'''영어에선 a, e, i, o, u 다섯 가지 알파벳을 모음으로 분류합니다. 문자열 my_string이 매개변수로 주어질 때 모음을 제거한 문자열을 return하도록 solution 함수를 완성해주세요.
+# '''
+
+# my_string = "nice to meet you"
+# answer = ''
+# my_string = list(my_string)
+# mo = ['a','e','i','o','u']
+
+# for i in mo :
+#     while i in my_string :
+#         my_string.remove(i) 
+# answer = "".join(my_string)
+# print(answer)
+
+
+# # 다른 풀이 
+# def solution(my_string):
+#     return "".join([i for i in my_string if not(i in "aeiou")])
+
+# # 상남자식 풀이 replace는 다 골라내서 바꾸니까!!!!
+
+# def solution(my_string):
+#     my_string = my_string.replace("a","")
+#     my_string = my_string.replace("e","")
+#     my_string = my_string.replace("i","")
+#     my_string = my_string.replace("o","")
+#     my_string = my_string.replace("u","")
+#     return my_string
+
+
+'''입출력 예 3,6,9가 잇는 만큼 박수 몇번 치기
+29423은 3이 1개, 9가 1개 있으므로 2를 출력합니다.'''
+order = 29423
+
+# order = str(order)
+# cnt = 0
+# for i in range(3,10,3) :    
+#     cnt += order.count(str(i))
+# print(cnt)
+
+# order = str(order)
+# print(order.count('3'))
+
+# str에서도 카운트를 사용할 수 있다. 비슷한 문제 
+'''정수 n이 매개변수로 주어질 때 n의 각 자리 숫자의 합을 return하도록 solution 함수를 완성해주세요'''
+
+# cnt = 0
+# for i in str(930211) :
+#     print(i)
+#     cnt += i
+
+
+# # 다른사람의 풀이
+# def solution(order):
+#     order = str(order)
+#     return order.count('3') + order.count('6') + order.count('9')
+
+'''개미 군단이 사냥을 나가려고 합니다. 개미군단은 사냥감의 체력에 딱 맞는 병력을 데리고 나가려고 합니다. 장군개미는 5의 공격력을, 병정개미는 3의 공격력을 일개미는 1의 공격력을 가지고 있습니다. 예를 들어 체력 23의 여치를 사냥하려고 할 때, 일개미 23마리를 데리고 가도 되지만, 장군개미 네 마리와 병정개미 한 마리를 데리고 간다면 더 적은 병력으로 사냥할 수 있습니다. 사냥감의 체력 hp가 매개변수로 주어질 때, 사냥감의 체력에 딱 맞게 최소한의 병력을 구성하려면 몇 마리의 개미가 필요한지를 return하도록 solution 함수를 완성해주세요.'''
+# hp = 24
+
+# ant5 = 5
+# ant3 = 3
+# ant1 = 1
+
+# num_ant5 = hp // ant5 
+# print(num_ant5) # 4
+# num_ant3 = (hp % ant5) // ant3 # 남은 개미를 3으로 나눔
+# print(num_ant3)
+# num_ant1 = (hp % ant5) % ant3
+# print(num_ant1)
+# # print(num_ant5+num_ant3+num_ant1)
+
+# # 다른 사람의 풀이
+
+# def solution(hp):    
+#     return hp // 5 + (hp % 5 // 3) + ((hp % 5) % 3)
+
+'''군 전략가 머쓱이는 전쟁 중 적군이 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
+
+암호화된 문자열 cipher를 주고받습니다.
+그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
+문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호 문자열을 return하도록 solution 함수를 완성해주세요.
+
+'''
+cipher = "dfjardstddetckdaccccdegk "	
+code = 4
+cipher = list(cipher) 
+n = 0
+me = []
+while n < len(list(cipher)) : 
+    n += code 
+    try :
+        me.append(cipher[n-1])
+    except :
+        pass
+# return "".join(me)
+
+
+# 다른 사람풀이
+
+def solution(cipher, code):
+    answer = cipher[code-1::code]
+    return answer
