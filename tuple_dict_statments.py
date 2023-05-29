@@ -268,9 +268,11 @@ a = dic1.items()
 #     list_2.append(i) 
 # print(list_2)
 
-list_3 = [2*j for j in range(10) if j % 2 == 1]
-print(list_3)
+# list_3 = [2*j for j in range(10) if j % 2 == 1]
+# print(list_3)
 
 
 
 
+
+# 세상에 enumerate()를 안 배우고 넘어감 ;;;;;;

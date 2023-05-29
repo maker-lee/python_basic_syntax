@@ -365,29 +365,147 @@ order = 29423
 # def solution(hp):    
 #     return hp // 5 + (hp % 5 // 3) + ((hp % 5) % 3)
 
-'''군 전략가 머쓱이는 전쟁 중 적군이 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
+# '''군 전략가 머쓱이는 전쟁 중 적군이 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
 
-암호화된 문자열 cipher를 주고받습니다.
-그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
-문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호 문자열을 return하도록 solution 함수를 완성해주세요.
+# 암호화된 문자열 cipher를 주고받습니다.
+# 그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
+# 문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호 문자열을 return하도록 solution 함수를 완성해주세요.
 
+# '''
+# cipher = "dfjardstddetckdaccccdegk "	
+# code = 4
+# cipher = list(cipher) 
+# n = 0
+# me = []
+# while n < len(list(cipher)) : 
+#     n += code 
+#     try :
+#         me.append(cipher[n-1])
+#     except :
+#         pass
+# # return "".join(me)
+
+
+# # 다른 사람풀이
+
+# def solution(cipher, code):
+#     answer = cipher[code-1::code]
+#     return answer
+
+
+#map 사용하기
+# 예제1) 리스트의 값을 정수 타입으로 변환 map(변환 타입 int,len 등등, [리스트]) 단 map은 객체이므로 다시 튜플, 리스트 타입으로 변환해야한다.
 '''
-cipher = "dfjardstddetckdaccccdegk "	
-code = 4
-cipher = list(cipher) 
-n = 0
-me = []
-while n < len(list(cipher)) : 
-    n += code 
-    try :
-        me.append(cipher[n-1])
-    except :
-        pass
-# return "".join(me)
+map(적용시킬함수, 반복가능한자료형)
+자료형을 함수에 하나씩 집어넣어 수행해준다.
+단, 함수의 반환값은 map 각체이기때문에 자료형을 list 혹은 tuple로 형변환 시켜야한다.
+'''
+
+# a = list(map(int,[1,2,3,4]))
+# print(a) # [1, 2, 3, 4]
+
+# strlist = ["We", "are", "the", "world!"]
+# answer =list(map(len,strlist)) # 글씨의 길이를 잰다. 
+# print(answer) # [2, 3, 3, 6]
+# age = 23
 
 
-# 다른 사람풀이
 
-def solution(cipher, code):
-    answer = cipher[code-1::code]
-    return answer
+# # 숫자가 주어지면 알파벳 으로 변경하기 
+# def solution(age):
+#     answer = ''
+#     alp = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+#     age = list(str(age))
+#     for i in age :
+#         answer += alp[int(i)]
+#     return answer
+
+# # 다른 풀이
+# def solution(age):
+#     answer = ''
+#     result = ['a','b','c','d','e','f','g','h','i','j']
+
+#     a_map = list(map(int, str(age)))
+#     for i in range(len(a_map)):
+#         answer += result[a_map[i]]
+#     return answer
+
+#문자열.split('구분자', 분할횟수)
+
+
+'''외과의사 머쓱이는 응급실에 온 환자의 응급도를 기준으로 진료 순서를 정하려고 합니다. 정수 배열 emergency가 매개변수로 주어질 때 응급도가 높은 순서대로 진료 순서를 정한 배열을 return하도록 solution 함수를 완성해주세요.'''
+
+# emergency = [3, 76, 24] # [3, 1, 2]
+
+# def solution(emergency):
+#     answer = []
+#     b = emergency[:]
+#     b.sort(reverse=True)    
+#     for i in range(len(emergency)) :
+#         answer.append(b.index(emergency[i])+1)
+#     return answer
+
+# # 다른문제풀이 
+# def solution(emergency):
+#     e = sorted(emergency,reverse=True)
+#     return [e.index(i)+1 for i in emergency]
+
+# sorted() 내장 함수는 파이썬에서 순회가 가능한(iterable) 객체를 인자로 받아 데이터를 정렬해줄 수 있습니다.sorted() 내장 함수는 인자로 넘어온 객체의 원래 순서를 건드리지 않고 정렬된 원소들을 새로운 객체에 담아서 반환해줍니다.
+
+# '''
+# >>> nums = [3, 5, 2, 1, 4]
+# >>> sorted_nums = sorted(nums)
+# >>> print(nums)
+# [3, 5, 2, 1, 4]
+# >>> print(sorted_nums)
+# [1, 2, 3, 4, 5]
+
+# sort 함수는 리스트명.sort( ) 형식으로 "리스트형의 메소드"​​이며 리스트 원본값을 직접 수정합니다. 반환값이 없음. 원본에 저장됨 
+
+# sorted 함수는 sorted( 리스트명 ) 형식으로 "내장 함수"이며 리스트 원본 값은 그대로이고 정렬 값을 반환합니다. 원본에 저장안됨. 반환함. print(sorted(nums)) 
+
+# '''
+
+
+
+# letter = ".... . .-.. .-.. ---"
+# morse = {'.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f','--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l','--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r','...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x','-.--':'y','--..':'z'}
+
+# # 나의 풀이 
+# letter = (list(letter.split(sep=" ")))
+# result = '' #result += morse[i]를없에도 그냥 morse[i]면 된다. 
+# #print(''.join([result += morse[i] for i in letter]))
+
+
+# # 다른 문제풀이 
+# letter = ".... . .-.. .-.. ---"
+# print(''.join([morse[i] for i in letter.split(' ')]))
+# # 뭔가 자동으로 합쳐지는 기능이 있나보지? ㅋ 
+
+
+# # 최댓값만들기
+
+# def solution(numbers):
+#     numbers.sort(reverse=True)
+#     if numbers[0]*numbers[1] > numbers[-1]*numbers[-2] :
+#         answer = numbers[0]*numbers[1]
+#     else :
+#         answer = numbers[-1]*numbers[-2]
+#     return answer
+
+# # max를 마지막에 사용하면 if를 쓰지 않아도 된다. 
+
+# def solution(numbers):
+#     numbers = sorted(numbers)
+#     return max(numbers[0] * numbers[1], numbers[-1]*numbers[-2]) 
+
+# # 수정한 내 코딩
+# def solution(numbers):
+#     numbers.sort(reverse=True)
+#     answer = max( numbers[0]*numbers[1] , numbers[-1]*numbers[-2])
+#     return answer
+
+
+num = [1,2,3]
+num.insert(0,10)
+print(num)
