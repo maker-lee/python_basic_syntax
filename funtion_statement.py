@@ -266,26 +266,76 @@
 #         list.append([lista[i],lista[j]])
 # print(list)
 
-# # 재귀함수 정답 ?????
-# def fac_C(lista) :
-#     list = []
-#     if :
-#         for i in range(len(lista)) :
-#             for j in range(i+1,len(lista)) :
-#                 list.append([lista[i],lista[j]])
-#     return list 
+# # 매개변수로 리스트와 조합해야할 n개의 숫자가 주어진다
+# # 리스트의 3개씩의 조합을 구하여 리스트에 담아 출력하여라
 
-# def fact(n) :
+# def fac_C(lista,total_list,temp_list,n,m) : # 어느리스트,몇번조합,리스트,    
+#     if m == 0:   # 객체는 글로벌을 쓰지 않아도 ㅇㅋ 
+#         total_list.append(temp_list[:])
+#         return # 리스트에 들어가는건 굳이 리턴값을 설정하지않아도 된다.
+#     for a in range(n,len(lista)) : # 반복할수록 줄어들어야하니까 
+#         temp_list.append(lista[a]) # 이중에서 하나씩 꺼낸값을 어팬드
+#         fac_C(lista,total_list,temp_list,a+1,m-1) # 함수 내에서 호출할때도 매개변수 숫자를 맞춰야한다. 
+#         # 재귀함수가 호출될때마다 m이 0이 될것이다. 
+#         temp_list.pop() # pop이 없으면 4050것들이 계속 추가된다. 
+
+# input1 = [10,20,30,40]
+# total_list = [] 
+# input2 = 2
+
+# fac_C(input1,total_list,[],0,input2)
+# print(total_list)
+
+# import math
+# print(math.comb(4,2))
+# print(math.perm(4,2))
+
+
+# # 카운트 재귀함수 
+# def counter(n) :
 #     if n == 1 :
-#         return 1
-#     return n * fact(n-1)
-# print(fact(4))
+#         return 1 # 종료 조건
+#     else :
+#         return str(counter(n-1)) + " " +str(n)
+# print(counter(5))
 
 
-# 카운트 재귀함수 
-def counter(n) :
-    if n == 1 :
-        return 1 # 종료 조건
-    else :
-        return str(counter(n-1)) + " " +str(n)
-print(counter(5))
+
+
+
+
+
+
+# # 조합 / 순열 함수 
+# from itertools import combinations, permutations
+
+# nums = [1,2,3]
+# per = list(permutations(nums,2)) # 순열(P)
+# comb = list(combinations(nums,2)) # 조합(C)
+# print(per)
+# print(comb)
+
+
+
+# # 조합? 
+# nums [1,2,3]
+# list1 = []
+
+# def combi(n,ans) :
+#     if n == len(nums) :
+#         temp = [i for i in ans] 
+#         list1.append(temp)
+#         return 
+#     ans.append(nums[n])
+#     combi(n +1,ans)
+#     ans.pop()
+#     combi(n+1, ans)
+
+# combi(0,[])
+# print(list1)
+
+
+
+
+
+

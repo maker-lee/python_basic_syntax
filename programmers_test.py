@@ -505,7 +505,9 @@ map(적용시킬함수, 반복가능한자료형)
 #     answer = max( numbers[0]*numbers[1] , numbers[-1]*numbers[-2])
 #     return answer
 
-'''정수 리스트 num_list와 정수 n이 주어질 때, num_list를 n 번째 원소 이후의 원소들과 n 번째까지의 원소들로 나눠 n 번째 원소 이후의 원소들을 n 번째까지의 원소들 앞에 붙인 리스트를 return하도록 solution 함수를 완성해주세요.
+'''정수 리스트 num_list와 정수 n이 주어질 때, num_list를 n 번째 원소 
+이후의 원소들과 n 번째까지의 원소들로 나눠 n 번째 원소 이후의 원소들을 
+n 번째까지의 원소들 앞에 붙인 리스트를 return하도록 solution 함수를 완성해주세요.
 '''
 
 # num_list = [2, 1, 6]
@@ -525,3 +527,89 @@ map(적용시킬함수, 반복가능한자료형)
 # def solution(num_list, n):
 #     return num_list[n:] + num_list[:n]
 
+
+# n = 3628800
+
+# def solution(n): # 정답 10!
+#     cnt = 0
+#     sum = 1
+#     for i in range(1,11) : 
+#         sum *= i
+#         cnt += 1
+#         if sum > n :
+#             return cnt -1 
+#         elif sum == n :
+#             return cnt
+        
+# # 팩토리얼 함수 사ㅛㅇ한 풀이
+# from math import factorial
+
+# def solution(n):
+#     k = 10
+#     while n < factorial(k):
+#         k -= 1
+#     return k
+
+# a = list('people')
+# new_a = []
+# for i in range(len(a)) :
+#     if a[i] not in new_a :
+#         new_a.append(a[i]) 
+# # print(''.join(new_a)) 
+
+# # 리스트로 바꾸지 않아도 가능
+# def solution(my_string):
+#     answer = ''
+#     for i in my_string:
+#         if i not in answer:
+#             answer+=i
+#     return answer
+# # 딕셔너리로 바꾸면 더 빠름
+# def solution(my_string):
+#     return ''.join(dict.fromkeys(my_string))
+
+# my_string = 'people'
+# print(dict.fromkeys(my_string))
+
+
+
+
+
+# '''정수 num과 k가 매개변수로 주어질 때, num을 이루는 숫자 중에 k가 있으면 num의 그 숫자가 있는 자리 수를 return하고 없으면 -1을 return 하도록 solution 함수를 완성해보세요.
+# '''
+# num = 232443
+# k = 4
+
+# def solution(num, k):
+#     num = (str(num))
+#     for i in range(len(num)) :
+#         if str(k) == (num[i]) :
+#             return int(i+1)
+#             break
+#     answer = -1
+#     return answer
+
+# # 다른 풀이
+# def solution(num, k):
+#     return -1 if str(k) not in str(num) else str(num).find(str(k)) + 1
+
+# # 달은풀이 
+# if str(k) not in str(num) :
+#     print(-1) 
+# else :
+#     str(num).find(str(k)) + 1
+
+
+
+numlist = [1, 2, 3, 4, 5, 6]
+n = 4
+closer = []
+
+for i in range(len(numlist)) :
+    closer.append(abs((numlist[i]-n)))
+a = closer.index(min(closer))
+print(a)
+print(numlist[a:] + numlist[:a])
+
+# [4, 5, 3, 6, 2, 1]
+# [4, 5, 6, 1, 2, 3]
