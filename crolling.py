@@ -65,16 +65,16 @@ import os
 
 def search(dirname):
     try:
-        filenames = os.listdir(dirname)
+        filenames = os.listdir(dirname) # 파이썬의 os.listdir() 함수는 지정 경로의 디렉토리 내의 모든 파일 이름을 리스트로 반환한다
         for filename in filenames:
-            full_filename = os.path.join(dirname, filename)
-            if os.path.isdir(full_filename):
-                search(full_filename) # 재귀함수 
+            full_filename = os.path.join(dirname, filename) #os.path.join('a','b') 는 a\b 이렇게 경로가듯 만들어줌
+            if os.path.isdir(full_filename): # 지정경로의 디렉토리 내 모든 파일이름을 리스트로 반환
+                search(full_filename) # 재귀함수 다시 처음으로가 
             else:
-                ext = os.path.splitext(full_filename)[-1]
-                if ext == '.py': 
+                ext = os.path.splitext(full_filename)[-1] #\를 기준으로 나뉨
+                if ext == '.py': # 더이상 폴더가 없는데, 파일명이 py인 경우 
                     print(full_filename)
-    except PermissionError:
+    except PermissionError: # Python 코드 중 특정 파일을 열 때 PermissionError가 생기는 이유는 대다수 파일의 권한 자체가 문제이거나 파일 경로가 잘못됐을 때가 많다.
         pass
 
 search(r'C:\Users\User\Desktop\이지선')
